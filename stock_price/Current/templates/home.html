@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="chat-container">
+  <form method="post" class="chat-form">
+    <h2>Enter The Chat Room</h2>
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Room Code" name="code" value="{{code}}" />
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn join-btn" name="join">Join a Room</button>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn create-btn" name="create">Create a Room</button>
+    </div>
+    <div>
+    <input type="hidden" id="user_id" value="{{ user_id }}">
+    <a href="/dashboard/{{user_id}}">Back to watchlist</a></div>
+    {% if error %}
+    <div class="alert alert-danger">
+      {{ error }}
+    </div>
+    {% endif %}
+  </form>
+</div>
+{% endblock %}
